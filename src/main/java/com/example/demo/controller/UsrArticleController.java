@@ -92,6 +92,17 @@ public class UsrArticleController {
 
 
     // 액션 메서드 종료
+    @RequestMapping("/usr/article/getArticleOne")
+    @ResponseBody
+    public Object getArticleOne(int id) {
+        Article article = getArticle(id);
+
+        if(article == null){
+            return id + "번 게시물은 존재하지 않습니다.";
+        }
+        return article;
+    }
+
 
     @RequestMapping("/usr/article/getArticles")
     @ResponseBody

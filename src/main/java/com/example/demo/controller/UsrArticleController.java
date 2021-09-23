@@ -26,22 +26,22 @@ public class UsrArticleController {
             int id = articlesLastId + 1;
             String title = "제목" + 1;
             String body = "내용" +1;
-            Article article = new Article(id,title,body);
-
-            articles.add(article);
-            articlesLastId = id;
-
+            writeArticle(title,body);
         }
+    }
+    public Article writeArticle(String title, String body) {
+        int id = articlesLastId + 1;
+        Article article = new Article(id,title,body);
+
+        articles.add(article);
+        articlesLastId = id;
+        return article;
     }
 
     @RequestMapping("/usr/article/doAdd")
     @ResponseBody
     public Article doAdd(String title,String body){
-        int id = articlesLastId + 1;
-        Article article = new Article(id, title, body);
-
-        articles.add(article);
-        articlesLastId++;
+        Article article = writeArticle(title,body);
         return article;
     }
     @RequestMapping("/usr/article/getArticles")
@@ -49,4 +49,5 @@ public class UsrArticleController {
     public List<Article> getArticles() {
         return articles;
     }
+
 }

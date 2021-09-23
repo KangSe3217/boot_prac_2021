@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.service.ArticleService;
 import com.example.demo.vo.Article;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +14,8 @@ import java.util.List;
 
 public class UsrArticleController {
     //매개변수
+    @Autowired
+    private ArticleService articleService;
     private int articlesLastId;
     private List<Article> articles;
 

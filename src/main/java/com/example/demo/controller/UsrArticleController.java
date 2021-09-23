@@ -47,7 +47,6 @@ public class UsrArticleController {
     }
 
 
-    // 액션 메서드 종료
     @RequestMapping("/usr/article/getArticleOne")
     @ResponseBody
     public Object getArticleOne(int id) {
@@ -65,8 +64,6 @@ public class UsrArticleController {
     public List<Article> getArticles() {
         return articleService.getArticles();
     }
-
-
 
 
 }

@@ -1,8 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.vo.Article;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 
@@ -38,6 +42,13 @@ public class UsrHomeController {
     public String doSetCount(int count) {
         this.count = count;
         return "count의 값이 " + this.count + "으로 초기화 되었습니다.";
+    }
+    @RequestMapping("usr/home/getArticle")
+    @ResponseBody
+    public Article getArticle() {
+        Article article = new Article(1, "제목1","내용1");
+
+        return article;
     }
 
 }
